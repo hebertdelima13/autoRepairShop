@@ -1,0 +1,33 @@
+<button
+  class="p-0"
+  data-bs-toggle="offcanvas"
+  href="#offcanvasExample"
+  role="button"
+  aria-controls="offcanvasExample"
+>
+  <i class="bi bi-list"></i>
+</button>
+
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="d-flex align-items-center justify-content-center py-5">
+    <div
+      class="logo d-flex align-items-center justify-content-center flex-column"
+    >
+      <i class="bi bi-car-front"></i>
+      <h1>ARS</h1>
+    </div>
+  </div>
+  <ul class="sidenav-nav px-5">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link py-3" (click)="navigateByUrl(data.routeLink)">
+        <i class="sidenav-link-icon mb-1" [class]="data.icon"></i>
+        <span class="sidenav-nav-text">{{ data.label }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

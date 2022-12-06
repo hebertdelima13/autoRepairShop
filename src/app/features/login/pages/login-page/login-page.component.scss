@@ -1,0 +1,56 @@
+@import "../../../../../styles.scss";
+
+.col-left {
+  h1 {
+    color: $textcolordark;
+    font-weight: $blackFont;
+  }
+
+  i {
+    font-size: 4rem;
+    color: $textcolordark;
+  }
+}
+
+.col-right {
+  background: $primary;
+
+  h1 {
+    font-weight: $blackFont;
+    color: $textcolorlight;
+  }
+
+  p {
+    opacity: 0.5;
+    margin: 0;
+    color: $textcolorlight;
+  }
+
+  .error {
+    font-size: 0.75rem;
+    color: $textcolorlight;
+  }
+
+  label {
+    color: $textcolorlight;
+  }
+
+  button {
+    background: $secondary;
+    color: $textcolordark;
+    border: none;
+  }
+
+  input {
+    color: $textcolorlight;
+    background: $primary;
+    border: none;
+    border-bottom: 1px solid #00594f !important;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:focus {
+      background: #005348;
+    }
+  }
+}

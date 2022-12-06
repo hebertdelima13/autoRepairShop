@@ -1,0 +1,33 @@
+@import "../../../styles.scss";
+
+.logo {
+  h1 {
+    font-size: 2rem;
+    font-weight: $blackFont;
+  }
+}
+
+.logocel {
+  background: $secondary;
+  border-radius: 100%;
+  max-height: 4rem;
+  max-width: 4rem;
+  h1 {
+    font-size: 2rem;
+    font-weight: $blackFont;
+    margin: 0;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+
+  &:hover {
+    border: none;
+  }
+}

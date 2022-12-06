@@ -1,0 +1,39 @@
+<header>
+  <div class="row">
+    <div class="col">
+      <app-sidebarnav></app-sidebarnav>
+    </div>
+    <div class="col logo text-center d-none d-lg-flex justify-content-center">
+      <h1>Auto Repair Shop</h1>
+    </div>
+    <!-- <div
+      class="col logo text-center d-lg-none d-flex align-items-center justify-content-center"
+    >
+      <h1>ARS</h1>
+    </div> -->
+
+    <div
+      class="col logocel text-center d-lg-none d-flex align-items-center justify-content-center flex-column"
+    >
+      <i class="bi bi-car-front"></i>
+      <h1>ARS</h1>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <div class="profile">
+        <div class="dropdown">
+          <button
+            class="btn p-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="logOut()">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

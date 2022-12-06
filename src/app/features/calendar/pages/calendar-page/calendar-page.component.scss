@@ -1,0 +1,25 @@
+@import "../../../../../styles.scss";
+
+.card {
+  border: 1px solid $primary;
+
+  .card-left {
+    background: $primary;
+    border-radius: 0.3rem 0 0 0.3rem;
+
+    i {
+      color: $secondary;
+    }
+  }
+
+  .card-right {
+    span {
+      font-size: 1.5rem;
+      font-weight: $bold;
+    }
+
+    h6 {
+      font-size: 0.75rem;
+    }
+  }
+}

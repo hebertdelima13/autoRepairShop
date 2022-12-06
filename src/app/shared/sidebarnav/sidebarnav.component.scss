@@ -1,0 +1,82 @@
+@import "../../../styles.scss";
+
+button {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.offcanvas {
+  width: fit-content;
+  border: none;
+}
+
+.logo {
+  background: $secondary;
+  border-radius: 100%;
+  height: 4rem;
+  width: 4rem;
+  h1 {
+    font-size: 2rem;
+    font-weight: $blackFont;
+    margin: 0;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+}
+
+.sidenav-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .sidenav-nav-item {
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    .sidenav-nav-link {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 1rem;
+
+      .sidenav-link-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: $primary;
+        text-align: center;
+        border-radius: 100%;
+        transition: all 0.6s;
+      }
+
+      .sidenav-nav-text {
+        color: $primary;
+        font-weight: $light;
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
+      &:hover {
+        background: $primary;
+        border-radius: 1rem;
+        transition: all 0.6s;
+
+        .sidenav-link-icon {
+          color: $textcolorlight;
+          background: $primary;
+          transition: all 0.6s;
+        }
+
+        .sidenav-nav-text {
+          color: $textcolorlight;
+        }
+      }
+    }
+  }
+}

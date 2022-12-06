@@ -1,0 +1,12 @@
+@import "../../../styles.scss";
+
+.buttons {
+  font-size: 0.8rem;
+  background: $primary;
+  border-radius: 1rem;
+  border: none;
+
+  &:hover {
+    border: none;
+  }
+}
