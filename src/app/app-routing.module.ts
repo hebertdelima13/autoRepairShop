@@ -38,7 +38,7 @@ const routes: Routes = [
     component: ClientDashboardComponent,
   },
   {
-    path: 'client/creat',
+    path: 'client/create',
     component: ClientCreateComponent,
   },
   {

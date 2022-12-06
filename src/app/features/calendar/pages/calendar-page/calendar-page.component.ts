@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
 import { Subscription } from 'rxjs';
 import { CalendarServicesModel } from '../../models/calendar-services.model';
-import { CalendarServicesService } from '../../services/calendar-services.service';
+import { CalendarServicesService } from '../../services/calendar.service';
 
 @Component({
   templateUrl: './calendar-page.component.html',
