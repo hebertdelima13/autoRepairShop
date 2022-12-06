@@ -24,6 +24,18 @@ export class ClientDashboardComponent implements OnInit {
     });
   }
 
+  removeClient(_id: string) {
+    this.subscriptions = this.clientService
+      .deleteClient(_id)
+      .subscribe((client) => {
+        this.getClient();
+      });
+  }
+
+  updateClient(clientId: string) {
+    this.router.navigateByUrl(`client/update/${clientId}`);
+  }
+
   navigateByUrl(url: string) {
     this.router.navigateByUrl(url);
   }

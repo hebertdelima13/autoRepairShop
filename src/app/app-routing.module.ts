@@ -42,7 +42,7 @@ const routes: Routes = [
     component: ClientCreateComponent,
   },
   {
-    path: 'client/create/:id',
+    path: 'client/update/:id',
     component: ClientCreateComponent,
   },
 ];
