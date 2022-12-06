@@ -1,16 +1,16 @@
 export const navbarData = [
   {
-    routeLink: 'calendario',
+    routeLink: 'calendar',
     icon: 'bi bi-calendar-date-fill',
     label: 'Calendário',
   },
   {
-    routeLink: 'servicos',
+    routeLink: 'services',
     icon: 'bi bi-tools',
     label: 'Serviços',
   },
   {
-    routeLink: 'clientes',
+    routeLink: 'client',
     icon: 'bi bi-person-fill',
     label: 'Clientes',
   },

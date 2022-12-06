@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
       .subscribe(
         (user) => {
           localStorage.setItem('token', user.token);
-          this.router.navigateByUrl('calendario');
+          this.router.navigateByUrl('calendar');
         },
         (error: HttpErrorResponse) => {
           console.log(error);
