@@ -9,7 +9,7 @@ import { ClientService } from '../../services/client.service';
   styleUrls: ['./client-dashboard.component.scss'],
 })
 export class ClientDashboardComponent implements OnInit {
-  Client: ClientModel[] = [];
+  clients: ClientModel[] = [];
   subscriptions: Subscription;
 
   constructor(private router: Router, private clientService: ClientService) {}
@@ -20,7 +20,7 @@ export class ClientDashboardComponent implements OnInit {
 
   getClient() {
     this.subscriptions = this.clientService.getClient().subscribe((client) => {
-      this.Client = client;
+      this.clients = client;
     });
   }
 

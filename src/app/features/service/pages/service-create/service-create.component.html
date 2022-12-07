@@ -1,1 +1,113 @@
-<p>service-create works!</p>
+<div class="container">
+  <div class="row"><app-header></app-header></div>
+  <div class="row mt-3">
+    <h1 class="fw-bold fs-4">{{ title }}</h1>
+  </div>
+
+  <form [formGroup]="serviceForm">
+    <div class="row">
+      <div class="col-12 col-md-3 mt-3">
+        <label for="">Cliente:</label>
+        <input
+          type="text"
+          class="w-100"
+          formControlName="title"
+          minlength="3"
+        />
+        <p
+          class="error mt-1"
+          *ngIf="serviceForm.controls.title.invalid && isSubmitted"
+        >
+          Digite o nome do cliente!
+        </p>
+      </div>
+      <div class="col-12 col-md-9 mt-3">
+        <label for="">Tipo de serviço:</label>
+        <input type="text" class="w-100" formControlName="services" />
+        <p
+          class="error mt-1"
+          *ngIf="serviceForm.controls.services.invalid && isSubmitted"
+        >
+          Digite o tipo de serviço!
+        </p>
+      </div>
+      <div class="col-12 col-md-3 mt-3">
+        <label for="">Valor do serviço:</label>
+        <input
+          type="text"
+          min="0"
+          class="w-100"
+          formControlName="price"
+          prefix="R$"
+          mask="separator.2"
+          thousandSeparator="."
+          decimalMarker=","
+        />
+        <p
+          class="error mt-1"
+          *ngIf="serviceForm.controls.price.invalid && isSubmitted"
+        >
+          Digite o valor do serviço!
+        </p>
+      </div>
+      <div class="col-12 col-md-5 mt-3">
+        <label for="">Data de início do serviço:</label>
+        <div class="d-flex">
+          <input type="date" formControlName="start" class="me-2" />
+          <input type="text" value="T" formControlName="t" hidden />
+          <input type="time" formControlName="startHour" />
+        </div>
+        <p
+          class="error mt-1"
+          *ngIf="serviceForm.controls.start.invalid && isSubmitted"
+        >
+          Digite uma data de início do serviço válida!
+        </p>
+      </div>
+      <div class="col-12 col-md-4 mt-3">
+        <label for="">Data de entrega do serviço :</label>
+        <div>
+          <input type="date" formControlName="end" class="me-2" />
+          <input type="text" value="T" formControlName="t" hidden />
+          <input type="time" formControlName="endHour" />
+        </div>
+        <p
+          class="error mt-1"
+          *ngIf="serviceForm.controls.end.invalid && isSubmitted"
+        >
+          Digite uma data de entrega válida!
+        </p>
+      </div>
+      <div class="col-3 mt-3 mb-4">
+        <label for="">Serviço pago:</label>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            formControlName="paid"
+          />
+        </div>
+      </div>
+      <div class="col-3 mt-3">
+        <label for="">Serviço finalizado:</label>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            formControlName="finished"
+          />
+        </div>
+      </div>
+    </div>
+    <app-button class="me-2" type="submit" (click)="onSubmit()">
+      Enviar <i class="bi bi-arrow-right ms-2"></i
+    ></app-button>
+    <app-button (click)="back()">
+      Voltar <i class="bi bi-x-lg ms-2"></i
+    ></app-button>
+  </form>
+</div>

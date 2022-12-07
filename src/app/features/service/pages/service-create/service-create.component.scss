@@ -1,0 +1,33 @@
+@import "../../../../../styles.scss";
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+  font-size: 0.9rem;
+  border: none;
+  border: 1px solid #ccc !important;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  outline: none;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  height: 1.5rem;
+
+  &:focus {
+    border: 1px solid $primary !important;
+  }
+
+  &::placeholder {
+    font-size: 0.75rem;
+  }
+}
+
+.error {
+  font-size: 0.75rem;
+  color: $textcolordark;
+}
+
+i {
+  color: $textcolorlight;
+}

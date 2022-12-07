@@ -30,7 +30,7 @@ const routes: Routes = [
     component: ServiceCreateComponent,
   },
   {
-    path: 'services/create/:id',
+    path: 'services/update/:id',
     component: ServiceCreateComponent,
   },
   {
