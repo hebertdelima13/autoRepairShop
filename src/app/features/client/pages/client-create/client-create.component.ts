@@ -64,27 +64,25 @@ export class ClientCreateComponent implements OnInit {
   }
 
   createClient(client: ClientModel) {
-    this.subscriptions = this.clientService.createClient(client).subscribe(
-      (res) => {
-        console.log(res);
+    this.subscriptions = this.clientService.createClient(client).subscribe({
+      next: () => {
         this.router.navigateByUrl('client');
       },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 
   updateClient(client: ClientModel) {
-    this.subscriptions = this.clientService.updateClient(client).subscribe(
-      (res) => {
-        console.log(res);
+    this.subscriptions = this.clientService.updateClient(client).subscribe({
+      next: () => {
         this.router.navigateByUrl('client');
       },
-      (error) => {
-        console.log(error);
-      }
-    );
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 
   private _checkEditMode() {

@@ -32,7 +32,7 @@
           type="text"
           class="w-100"
           formControlName="phone"
-          minlength="11"
+          mask="(00) 00000-0000"
         />
         <p
           class="error mt-1"
@@ -112,12 +112,9 @@
           type="text"
           class="w-100"
           formControlName="licenseplate"
-          minlength="7"
+          mask="SSS-0A90"
         />
-        <p
-          class="error mt-1"
-          *ngIf="clientForm.controls.licenseplate.invalid && isSubmitted"
-        >
+        <p class="error mt-1" *ngIf="clientForm.controls.licenseplate.invalid">
           Digite uma placa válida!
         </p>
       </div>

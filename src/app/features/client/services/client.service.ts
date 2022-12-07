@@ -37,7 +37,10 @@ export class ClientService {
   }
 
   updateClient(client: ClientModel): Observable<ClientModel> {
-    return this.http.put<ClientModel>(`${this.apiURL}/${client._id}`, client);
+    return this.http.put<ClientModel>(
+      `${this.apiURL}/update/${client._id}`,
+      client
+    );
   }
 
   deleteClient(_id: string): Observable<Object> {

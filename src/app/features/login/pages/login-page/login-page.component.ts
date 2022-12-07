@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class LoginPageComponent implements OnInit {
   isSubmitted = false;
   authError = false;
   authMessage = 'E-mail ou senha incorreta!';
+  subscriptions: Subscription;
 
   constructor(
     private router: Router,
@@ -36,23 +38,23 @@ export class LoginPageComponent implements OnInit {
     this.isSubmitted = true;
 
     if (this.loginForm.invalid) return;
-    this.usersService
+    this.subscriptions = this.usersService
       .login(
         this.loginForm.controls.email.value,
         this.loginForm.controls.password.value
       )
-      .subscribe(
-        (user) => {
+      .subscribe({
+        next: (user) => {
           localStorage.setItem('token', user.token);
           this.router.navigateByUrl('calendar');
         },
-        (error: HttpErrorResponse) => {
-          console.log(error);
+        error: (err: any) => {
+          console.log(err);
           this.authError = true;
-          if (error.status !== 400) {
+          if (err.status !== 400) {
             this.authMessage = 'Erro no servidor, tente mais tarde!';
           }
-        }
-      );
+        },
+      });
   }
 }

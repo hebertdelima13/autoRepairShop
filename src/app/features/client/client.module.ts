@@ -4,9 +4,15 @@ import { ClientDashboardComponent } from './pages/client-dashboard/client-dashbo
 import { ClientCreateComponent } from './pages/client-create/client-create.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @NgModule({
   declarations: [ClientDashboardComponent, ClientCreateComponent],
-  imports: [CommonModule, SharedModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
+  ],
 })
 export class ClientModule {}
