@@ -1,7 +1,11 @@
 export interface CalendarServicesModel {
   title: string;
-  start: any;
-  startHour: any;
-  end: any;
-  endHour: any;
+  start: string;
+  startHour: string;
+  end: string;
+  endHour: string;
+  services: string;
+  price: number;
+  finished: boolean;
+  paid: boolean;
 }

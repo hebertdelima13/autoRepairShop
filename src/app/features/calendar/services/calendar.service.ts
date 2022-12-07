@@ -9,7 +9,9 @@ import { CalendarServicesModel } from '../models/calendar-services.model';
 })
 export class CalendarServicesService {
   apiURL = environment.apiURL + 'services';
-  apiURLCount = environment.apiURL + 'servicescount';
+  apiURLServicesCount = environment.apiURL + 'servicescount';
+  apiURLServicesFiniCount = environment.apiURL + 'servfinishedcount';
+  apiURLServicesUnfiniCount = environment.apiURL + 'servunfinishedcount';
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +20,16 @@ export class CalendarServicesService {
   }
 
   getServicesCount(): Observable<CalendarServicesModel[]> {
-    return this.http.get<CalendarServicesModel[]>(this.apiURLCount);
+    return this.http.get<CalendarServicesModel[]>(this.apiURLServicesCount);
+  }
+
+  getFinishedServices(): Observable<CalendarServicesModel[]> {
+    return this.http.get<CalendarServicesModel[]>(this.apiURLServicesFiniCount);
+  }
+
+  getUnfinishedServices(): Observable<CalendarServicesModel[]> {
+    return this.http.get<CalendarServicesModel[]>(
+      this.apiURLServicesUnfiniCount
+    );
   }
 }

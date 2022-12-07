@@ -13,12 +13,16 @@ export class CalendarPageComponent implements OnInit {
   calendarOptions: CalendarOptions = {};
   subscriptions: Subscription;
   count: any[] = [];
+  finished: any[] = [];
+  unfinished: any[] = [];
 
   constructor(private calendarServices: CalendarServicesService) {}
 
   ngOnInit(): void {
     this.getServices();
     this.getServicesCount();
+    this.getServicesFiniCount();
+    this.getServicesUnifiniCount();
   }
 
   getServices() {
@@ -49,6 +53,24 @@ export class CalendarPageComponent implements OnInit {
       .subscribe((count) => {
         console.log(count);
         this.count = count;
+      });
+  }
+
+  getServicesFiniCount() {
+    this.subscriptions = this.calendarServices
+      .getFinishedServices()
+      .subscribe((finished) => {
+        console.log(finished);
+        this.finished = finished;
+      });
+  }
+
+  getServicesUnifiniCount() {
+    this.subscriptions = this.calendarServices
+      .getUnfinishedServices()
+      .subscribe((unifinished) => {
+        console.log(unifinished);
+        this.unfinished = unifinished;
       });
   }
 }
