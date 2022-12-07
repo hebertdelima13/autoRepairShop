@@ -6,6 +6,7 @@ import { ClientDashboardComponent } from './features/client/pages/client-dashboa
 import { LoginPageComponent } from './features/login/pages/login-page/login-page.component';
 import { ServiceCreateComponent } from './features/service/pages/service-create/service-create.component';
 import { ServiceDashboardComponent } from './features/service/pages/service-dashboard/service-dashboard.component';
+import { AuthGuard } from './shared/guard/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,30 +21,37 @@ const routes: Routes = [
   {
     path: 'calendar',
     component: CalendarPageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'services',
     component: ServiceDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'services/create',
     component: ServiceCreateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'services/update/:id',
     component: ServiceCreateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'client',
     component: ClientDashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'client/create',
     component: ClientCreateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'client/update/:id',
     component: ClientCreateComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
