@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CarModel } from '../../models/car.model';
 import { ClientModel } from '../../models/client.model';
 import { ClientService } from '../../services/client.service';
 
@@ -13,6 +14,7 @@ import { ClientService } from '../../services/client.service';
 export class ClientCreateComponent implements OnInit {
   clientForm!: FormGroup;
   clientId: string;
+  arrayCars: CarModel[] = [];
   title = 'Adicionar cliente';
   isSubmitted: boolean = false;
   editmode: boolean = false;
@@ -26,18 +28,23 @@ export class ClientCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initLoginForm();
+    this.checkEditMode();
+    this.getCars();
+  }
+
+  private initLoginForm() {
     this.clientForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       street: ['', Validators.required],
-      streetnumber: ['', Validators.required],
+      streetnumber: [''],
       city: ['', Validators.required],
       state: ['', Validators.required],
       car: ['', Validators.required],
       licenseplate: ['', Validators.required],
     });
-    this._checkEditMode();
   }
 
   onSubmit() {
@@ -64,45 +71,63 @@ export class ClientCreateComponent implements OnInit {
   }
 
   createClient(client: ClientModel) {
-    this.subscriptions = this.clientService.createClient(client).subscribe({
-      next: () => {
-        this.router.navigateByUrl('client');
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
+    if (this.clientForm.valid) {
+      this.subscriptions = this.clientService.createClient(client).subscribe({
+        next: () => {
+          this.router.navigateByUrl('client');
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
+    }
   }
 
   updateClient(client: ClientModel) {
-    this.subscriptions = this.clientService.updateClient(client).subscribe({
-      next: () => {
-        this.router.navigateByUrl('client');
-      },
-      error: (err: any) => {
-        console.log(err);
-      },
-    });
+    if (this.clientForm.valid) {
+      this.subscriptions = this.clientService.updateClient(client).subscribe({
+        next: () => {
+          this.router.navigateByUrl('client');
+        },
+        error: (err: any) => {
+          console.log(err);
+        },
+      });
+    }
   }
 
-  private _checkEditMode() {
+  private checkEditMode() {
     this.activatedRoute.params.subscribe((params) => {
       if (params.id) {
         this.editmode = true;
         this.title = 'Editar cliente';
         this.clientId = params.id;
-        this.clientService.getClientId(params.id).subscribe((client) => {
-          this.clientForm.controls.name.setValue(client.name);
-          this.clientForm.controls.email.setValue(client.email);
-          this.clientForm.controls.phone.setValue(client.phone);
-          this.clientForm.controls.street.setValue(client.street);
-          this.clientForm.controls.streetnumber.setValue(client.streetnumber);
-          this.clientForm.controls.city.setValue(client.city);
-          this.clientForm.controls.state.setValue(client.state);
-          this.clientForm.controls.car.setValue(client.car);
-          this.clientForm.controls.licenseplate.setValue(client.licenseplate);
-        });
+        this.subscriptions = this.clientService
+          .getClientId(params.id)
+          .subscribe((client) => {
+            this.clientForm.controls.name.setValue(client.name);
+            this.clientForm.controls.email.setValue(client.email);
+            this.clientForm.controls.phone.setValue(client.phone);
+            this.clientForm.controls.street.setValue(client.street);
+            this.clientForm.controls.streetnumber.setValue(client.streetnumber);
+            this.clientForm.controls.city.setValue(client.city);
+            this.clientForm.controls.state.setValue(client.state);
+            this.clientForm.controls.car.setValue(client.car);
+            this.clientForm.controls.licenseplate.setValue(client.licenseplate);
+          });
       }
+    });
+  }
+
+  getCars() {
+    this.subscriptions = this.clientService.getCars().subscribe({
+      next: (cars) => {
+        this.arrayCars = cars;
+        console.log(cars);
+      },
+      error(err) {
+        console.log(err);
+      },
     });
   }
 

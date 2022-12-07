@@ -33,6 +33,7 @@
           class="w-100"
           formControlName="phone"
           mask="(00) 00000-0000"
+          placeholder="(00) 00000-0000"
         />
         <p
           class="error mt-1"
@@ -58,13 +59,12 @@
       </div>
       <div class="col-12 col-md-1 mt-3">
         <label for="">N°:</label
-        ><input type="number" class="w-100" formControlName="streetnumber" />
-        <p
-          class="error mt-1"
-          *ngIf="clientForm.controls.streetnumber.invalid && isSubmitted"
-        >
-          Digite um número válido!
-        </p>
+        ><input
+          type="number"
+          class="w-100"
+          formControlName="streetnumber"
+          min="0"
+        />
       </div>
       <div class="col-12 col-md-3 mt-3">
         <label for="">Cidade:</label
@@ -97,8 +97,16 @@
         </p>
       </div>
       <div class="col-12 col-md-3 mt-3">
-        <label for="">Carro:</label
-        ><input type="text" class="w-100" formControlName="car" />
+        <label for="">Carro:</label>
+        <select formControlName="car" class="w-100">
+          <option></option>
+          <option
+            *ngFor="let cars of arrayCars"
+            value="{{ cars.model[0].toUpperCase() + cars.model.substr(1) }}"
+          >
+            {{ cars.model }}
+          </option>
+        </select>
         <p
           class="error mt-1"
           *ngIf="clientForm.controls.car.invalid && isSubmitted"
@@ -112,9 +120,13 @@
           type="text"
           class="w-100"
           formControlName="licenseplate"
-          mask="SSS-0A90"
+          mask="SSS-0A00"
+          placeholder="AAA-0000 ou AAA-0A00"
         />
-        <p class="error mt-1" *ngIf="clientForm.controls.licenseplate.invalid">
+        <p
+          class="error mt-1"
+          *ngIf="clientForm.controls.licenseplate.invalid && isSubmitted"
+        >
           Digite uma placa válida!
         </p>
       </div>

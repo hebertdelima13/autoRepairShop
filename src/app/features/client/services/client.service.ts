@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CarModel } from '../models/car.model';
 import { ClientModel } from '../models/client.model';
 
 @Injectable({
@@ -47,7 +48,7 @@ export class ClientService {
     return this.http.delete<Object>(`${this.apiURL}/${_id}`);
   }
 
-  getCars(): Observable<ClientModel[]> {
-    return this.http.get<ClientModel[]>(this.apiCars);
+  getCars(): Observable<CarModel[]> {
+    return this.http.get<CarModel[]>(this.apiCars);
   }
 }
