@@ -49,14 +49,14 @@
           <i class="bi bi-cash"></i>
         </div>
         <div class="card-right me-2 text-center">
-          <span>R$200,00</span>
+          <span>{{ total[0]?.totalprice | currency : "BRL" }}</span>
           <h6 class="m-0">Total de faturamento</h6>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-5 mb-5">
     <full-calendar [options]="calendarOptions"></full-calendar>
   </div>
 </div>

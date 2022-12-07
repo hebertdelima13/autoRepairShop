@@ -4,8 +4,4 @@ export interface CalendarServicesModel {
   startHour: string;
   end: string;
   endHour: string;
-  services: string;
-  price: number;
-  finished: boolean;
-  paid: boolean;
 }

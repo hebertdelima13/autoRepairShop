@@ -15,6 +15,7 @@ export class CalendarPageComponent implements OnInit {
   count: any[] = [];
   finished: any[] = [];
   unfinished: any[] = [];
+  total: any[] = [];
 
   constructor(private calendarServices: CalendarServicesService) {}
 
@@ -23,6 +24,7 @@ export class CalendarPageComponent implements OnInit {
     this.getServicesCount();
     this.getServicesFiniCount();
     this.getServicesUnifiniCount();
+    this.getServicesTotalPrice();
   }
 
   getServices() {
@@ -33,11 +35,14 @@ export class CalendarPageComponent implements OnInit {
         this.calendarOptions = {
           initialView: 'timeGridWeek',
           locale: 'pt',
+          allDaySlot: false,
           slotMinTime: '07:00:00',
           slotMaxTime: '22:00:00',
           slotLabelFormat: [{ hour: '2-digit', minute: '2-digit' }],
+          // eventClick: function (res) {
+          //   alert(res.event.extendedProps.services);
+          // },
           events: (this.Services = Events),
-          // eventClick: function (res) {},
           headerToolbar: {
             left: 'prev',
             center: 'title',
@@ -71,6 +76,14 @@ export class CalendarPageComponent implements OnInit {
       .subscribe((unifinished) => {
         console.log(unifinished);
         this.unfinished = unifinished;
+      });
+  }
+
+  getServicesTotalPrice() {
+    this.subscriptions = this.calendarServices
+      .getServicesTotalPrice()
+      .subscribe((totalprice) => {
+        this.total = totalprice;
       });
   }
 }

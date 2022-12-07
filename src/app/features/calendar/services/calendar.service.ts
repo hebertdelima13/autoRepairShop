@@ -12,6 +12,7 @@ export class CalendarServicesService {
   apiURLServicesCount = environment.apiURL + 'servicescount';
   apiURLServicesFiniCount = environment.apiURL + 'servfinishedcount';
   apiURLServicesUnfiniCount = environment.apiURL + 'servunfinishedcount';
+  apiURLServicesTotalPrice = environment.apiURL + 'servicestotalprice';
 
   constructor(private http: HttpClient) {}
 
@@ -30,6 +31,12 @@ export class CalendarServicesService {
   getUnfinishedServices(): Observable<CalendarServicesModel[]> {
     return this.http.get<CalendarServicesModel[]>(
       this.apiURLServicesUnfiniCount
+    );
+  }
+
+  getServicesTotalPrice(): Observable<CalendarServicesModel[]> {
+    return this.http.get<CalendarServicesModel[]>(
+      this.apiURLServicesTotalPrice
     );
   }
 }
