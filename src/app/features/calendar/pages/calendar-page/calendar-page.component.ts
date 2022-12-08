@@ -3,6 +3,8 @@ import { CalendarOptions } from '@fullcalendar/angular';
 import { Subscription } from 'rxjs';
 import { CalendarServicesModel } from '../../models/calendar-services.model';
 import { CalendarServicesService } from '../../services/calendar.service';
+import { ToastrService } from 'ngx-toastr';
+import brLocale from '@fullcalendar/core/locales/pt-br';
 
 @Component({
   templateUrl: './calendar-page.component.html',
@@ -16,8 +18,12 @@ export class CalendarPageComponent implements OnInit {
   finished: any[] = [];
   unfinished: any[] = [];
   total: any[] = [];
+  locales = [brLocale];
 
-  constructor(private calendarServices: CalendarServicesService) {}
+  constructor(
+    private calendarServices: CalendarServicesService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getServices();
@@ -30,23 +36,45 @@ export class CalendarPageComponent implements OnInit {
   getServices() {
     this.subscriptions = this.calendarServices
       .getServices()
+
       .subscribe((Events) => {
         console.log(Events);
         this.calendarOptions = {
-          initialView: 'timeGridWeek',
-          locale: 'pt',
+          initialView: 'dayGridMonth',
+          locales: this.locales,
+          titleFormat: {
+            day: 'numeric',
+            year: '2-digit',
+            month: 'numeric',
+          },
           allDaySlot: false,
           slotMinTime: '07:00:00',
           slotMaxTime: '22:00:00',
+          dayMaxEvents: true,
+          eventTextColor: 'fffffe',
+          eventBackgroundColor: '#004239',
+          eventBorderColor: '#34373c',
           slotLabelFormat: [{ hour: '2-digit', minute: '2-digit' }],
+          eventClick: this.handleServiceClick.bind(this),
+
           // eventClick: function (res) {
-          //   alert(res.event.extendedProps.services);
+          //   console.log(res);
+          //   alert(
+          //     'Cliente: ' +
+          //       res.event.title +
+          //       '\n' +
+          //       'Serviço: ' +
+          //       res.event.extendedProps.services +
+          //       '\n' +
+          //       'Data da entrega: ' +
+          //       res.event.end?.toLocaleDateString()
+          //   );
           // },
           events: (this.Services = Events),
           headerToolbar: {
-            left: 'prev',
-            center: 'title',
-            right: 'next timeGridWeek listWeek dayGridMonth',
+            left: '',
+            center: 'prev next today dayGridMonth timeGridWeek listWeek',
+            right: '',
           },
         };
       });
@@ -85,5 +113,19 @@ export class CalendarPageComponent implements OnInit {
       .subscribe((totalprice) => {
         this.total = totalprice;
       });
+  }
+
+  handleServiceClick(arg: any) {
+    this.toastr.info(
+      arg.event.extendedProps.services +
+        '<br>' +
+        arg.event.end?.toLocaleDateString(),
+      arg.event.title,
+      {
+        closeButton: true,
+        enableHtml: true,
+        timeOut: 5000,
+      }
+    );
   }
 }

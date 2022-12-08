@@ -9,10 +9,10 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 
 FullCalendarModule.registerPlugins([
+  dayGridPlugin,
   timeGridPlugin,
   interactionPlugin,
   listPlugin,
-  dayGridPlugin,
 ]);
 
 @NgModule({

@@ -10,12 +10,15 @@ import { LoginModule } from './features/login/login.module';
 import { ServiceModule } from './features/service/service.module';
 import { SharedModule } from './shared/shared.module';
 import { registerLocaleData } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     CalendarModule,
@@ -23,6 +26,9 @@ registerLocaleData(localePt);
     ServiceModule,
     ClientModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     {
