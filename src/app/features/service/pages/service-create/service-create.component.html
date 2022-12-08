@@ -8,12 +8,18 @@
     <div class="row">
       <div class="col-12 col-md-3 mt-3">
         <label for="">Cliente:</label>
-        <input
+        <select formControlName="title" class="w-100">
+          <option></option>
+          <option *ngFor="let client of Clients" value="{{ client.name }}">
+            {{ client.name }}
+          </option>
+        </select>
+        <!-- <input
           type="text"
           class="w-100"
           formControlName="title"
           minlength="3"
-        />
+        /> -->
         <p
           class="error mt-1"
           *ngIf="serviceForm.controls.title.invalid && isSubmitted"
@@ -90,7 +96,7 @@
           />
         </div>
       </div>
-      <div class="col-3 mt-3">
+      <div class="col-4 mt-3">
         <label for="">Serviço finalizado:</label>
         <div class="form-check form-switch">
           <input

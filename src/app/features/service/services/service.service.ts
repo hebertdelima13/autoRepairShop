@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ClientModel } from '../../client/models/client.model';
 import { ServiceModel } from '../models/service.model';
 
 @Injectable({
@@ -9,6 +10,7 @@ import { ServiceModel } from '../models/service.model';
 })
 export class ServiceService {
   apiURL = environment.apiURL + 'services';
+  apiURLClients = environment.apiURL + 'clients';
 
   constructor(private http: HttpClient) {}
 
@@ -44,5 +46,9 @@ export class ServiceService {
 
   deleteService(_id: string): Observable<Object> {
     return this.http.delete<Object>(`${this.apiURL}/${_id}`);
+  }
+
+  getClients(): Observable<ClientModel[]> {
+    return this.http.get<ClientModel[]>(`${this.apiURLClients}`);
   }
 }

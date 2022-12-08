@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ClientModel } from 'src/app/features/client/models/client.model';
 import { ServiceModel } from '../../models/service.model';
 import { ServiceService } from '../../services/service.service';
 
@@ -16,6 +17,7 @@ export class ServiceCreateComponent implements OnInit {
   isSubmitted: boolean = false;
   editmode: boolean = false;
   subscriptions: Subscription;
+  Clients: ClientModel[] = [];
 
   constructor(
     private serviceServices: ServiceService,
@@ -27,6 +29,7 @@ export class ServiceCreateComponent implements OnInit {
   ngOnInit(): void {
     this.initServiceForm();
     this.checkEditMode();
+    this.getClients();
   }
 
   private initServiceForm() {
@@ -111,20 +114,33 @@ export class ServiceCreateComponent implements OnInit {
         this.editmode = true;
         this.serviceId = params.id;
         this.title = 'Editar serviço';
-        this.serviceServices.getServiceId(params.id).subscribe((service) => {
-          console.log(service.start.split('T', 1));
-          this.serviceForm.controls.title.setValue(service.title);
-          this.serviceForm.controls.start.setValue(service.start.split('T', 1));
-          this.serviceForm.controls.startHour.setValue(service.startHour);
-          this.serviceForm.controls.services.setValue(service.services);
-          this.serviceForm.controls.end.setValue(service.end.split('T', 1));
-          this.serviceForm.controls.endHour.setValue(service.endHour);
-          this.serviceForm.controls.price.setValue(service.price);
-          this.serviceForm.controls.paid.setValue(service.paid);
-          this.serviceForm.controls.finished.setValue(service.finished);
-        });
+        this.subscriptions = this.serviceServices
+          .getServiceId(params.id)
+          .subscribe((service) => {
+            console.log(service.start.split('T', 1));
+            this.serviceForm.controls.title.setValue(service.title);
+            this.serviceForm.controls.start.setValue(
+              service.start.split('T', 1)
+            );
+            this.serviceForm.controls.startHour.setValue(service.startHour);
+            this.serviceForm.controls.services.setValue(service.services);
+            this.serviceForm.controls.end.setValue(service.end.split('T', 1));
+            this.serviceForm.controls.endHour.setValue(service.endHour);
+            this.serviceForm.controls.price.setValue(service.price);
+            this.serviceForm.controls.paid.setValue(service.paid);
+            this.serviceForm.controls.finished.setValue(service.finished);
+          });
       }
     });
+  }
+
+  getClients() {
+    this.subscriptions = this.serviceServices
+      .getClients()
+      .subscribe((client) => {
+        console.log(client);
+        this.Clients = client;
+      });
   }
 
   back() {

@@ -23,7 +23,7 @@ export class CalendarPageComponent implements OnInit {
     this.getServices();
     this.getServicesCount();
     this.getServicesFiniCount();
-    this.getServicesUnifiniCount();
+    this.getServicesUnfiniCount();
     this.getServicesTotalPrice();
   }
 
@@ -70,7 +70,7 @@ export class CalendarPageComponent implements OnInit {
       });
   }
 
-  getServicesUnifiniCount() {
+  getServicesUnfiniCount() {
     this.subscriptions = this.calendarServices
       .getUnfinishedServices()
       .subscribe((unifinished) => {
