@@ -5,6 +5,10 @@ button {
   border: none;
   background: none;
   outline: none;
+
+  i {
+    color: $textcolordark !important;
+  }
 }
 
 .offcanvas {
