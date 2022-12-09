@@ -117,8 +117,10 @@ export class CalendarPageComponent implements OnInit {
 
   handleServiceClick(arg: any) {
     this.toastr.info(
-      arg.event.extendedProps.services +
+      'Serviço: ' +
+        arg.event.extendedProps.services +
         '<br>' +
+        'Data de entrega: ' +
         arg.event.end?.toLocaleDateString(),
       arg.event.title,
       {
