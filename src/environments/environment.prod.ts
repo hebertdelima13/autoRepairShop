@@ -1,10 +1,13 @@
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:3000/',
-  apiURLServices: 'http://localhost:3000/services',
-  apiURLServicesCount: 'http://localhost:3000/servicescount',
-  apiURLServicesFinCount: 'http://localhost:3000/servfinishedcount',
-  apiURLServicesUnfCount: 'http://localhost:3000/servunfinishedcount',
-  apiURLServicesTotalPrice: 'http://localhost:3000/servicestotalprice',
-  apiURLClients: 'http://localhost:3000/clients',
+  apiURL: 'https://autorepairshopapi.onrender.com/',
+  apiURLServices: 'https://autorepairshopapi.onrender.com/services',
+  apiURLServicesCount: 'https://autorepairshopapi.onrender.com/servicescount',
+  apiURLServicesFinCount:
+    'https://autorepairshopapi.onrender.com/servfinishedcount',
+  apiURLServicesUnfCount:
+    'https://autorepairshopapi.onrender.com/servunfinishedcount',
+  apiURLServicesTotalPrice:
+    'https://autorepairshopapi.onrender.com/servicestotalprice',
+  apiURLClients: 'https://autorepairshopapi.onrender.com/clients',
 };
