@@ -31,3 +31,12 @@
     border: none;
   }
 }
+
+.dropdown-menu {
+  border: 1px solid $primary !important;
+  background: $primary;
+
+  a:hover {
+    background: none !important;
+  }
+}
