@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { CarModel } from '../models/car.model';
 import { ClientModel } from '../models/client.model';
 
@@ -9,7 +9,7 @@ import { ClientModel } from '../models/client.model';
   providedIn: 'root',
 })
 export class ClientService {
-  apiURLClients = environment.apiURLClients.prod;
+  apiURLClients = environment.apiURLClients;
   apiURLCars = 'https://private-anon-71ea83ed72-carsapi1.apiary-mock.com/cars';
 
   constructor(private http: HttpClient) {}
