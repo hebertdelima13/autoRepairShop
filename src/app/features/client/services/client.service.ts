@@ -9,17 +9,17 @@ import { ClientModel } from '../models/client.model';
   providedIn: 'root',
 })
 export class ClientService {
-  apiURL = environment.apiURL + 'clients';
-  apiCars = 'https://private-anon-71ea83ed72-carsapi1.apiary-mock.com/cars';
+  apiURLClients = environment.apiURLClients;
+  apiURLCars = 'https://private-anon-71ea83ed72-carsapi1.apiary-mock.com/cars';
 
   constructor(private http: HttpClient) {}
 
   getClient(): Observable<ClientModel[]> {
-    return this.http.get<ClientModel[]>(this.apiURL);
+    return this.http.get<ClientModel[]>(this.apiURLClients);
   }
 
   getClientId(_id: string): Observable<ClientModel> {
-    return this.http.get<ClientModel>(`${this.apiURL}/${_id}`);
+    return this.http.get<ClientModel>(`${this.apiURLClients}/${_id}`);
   }
 
   createClient(client: ClientModel): Observable<ClientModel> {
@@ -34,21 +34,21 @@ export class ClientService {
       car: client.car,
       licenseplate: client.licenseplate,
     };
-    return this.http.post<ClientModel>(`${this.apiURL}`, clientBody);
+    return this.http.post<ClientModel>(`${this.apiURLClients}`, clientBody);
   }
 
   updateClient(client: ClientModel): Observable<ClientModel> {
     return this.http.put<ClientModel>(
-      `${this.apiURL}/update/${client._id}`,
+      `${this.apiURLClients}/update/${client._id}`,
       client
     );
   }
 
   deleteClient(_id: string): Observable<Object> {
-    return this.http.delete<Object>(`${this.apiURL}/${_id}`);
+    return this.http.delete<Object>(`${this.apiURLClients}/${_id}`);
   }
 
   getCars(): Observable<CarModel[]> {
-    return this.http.get<CarModel[]>(this.apiCars);
+    return this.http.get<CarModel[]>(this.apiURLCars);
   }
 }

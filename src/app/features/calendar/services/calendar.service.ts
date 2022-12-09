@@ -8,16 +8,16 @@ import { CalendarServicesModel } from '../models/calendar-services.model';
   providedIn: 'root',
 })
 export class CalendarServicesService {
-  apiURL = environment.apiURL + 'services';
-  apiURLServicesCount = environment.apiURL + 'servicescount';
-  apiURLServicesFiniCount = environment.apiURL + 'servfinishedcount';
-  apiURLServicesUnfiniCount = environment.apiURL + 'servunfinishedcount';
-  apiURLServicesTotalPrice = environment.apiURL + 'servicestotalprice';
+  apiURLServices = environment.apiURLServices;
+  apiURLServicesCount = environment.apiURLServicesCount;
+  apiURLServicesFiniCount = environment.apiURLServicesFinCount;
+  apiURLServicesUnfiniCount = environment.apiURLServicesUnfCount;
+  apiURLServicesTotalPrice = environment.apiURLServicesTotalPrice;
 
   constructor(private http: HttpClient) {}
 
   getServices(): Observable<CalendarServicesModel[]> {
-    return this.http.get<CalendarServicesModel[]>(this.apiURL);
+    return this.http.get<CalendarServicesModel[]>(this.apiURLServices);
   }
 
   getServicesCount(): Observable<CalendarServicesModel[]> {

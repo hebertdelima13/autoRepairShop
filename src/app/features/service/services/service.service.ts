@@ -9,17 +9,17 @@ import { ServiceModel } from '../models/service.model';
   providedIn: 'root',
 })
 export class ServiceService {
-  apiURL = environment.apiURL + 'services';
-  apiURLClients = environment.apiURL + 'clients';
+  apiURLServices = environment.apiURLServices;
+  apiURLClients = environment.apiURLClients;
 
   constructor(private http: HttpClient) {}
 
   getService(): Observable<ServiceModel[]> {
-    return this.http.get<ServiceModel[]>(this.apiURL);
+    return this.http.get<ServiceModel[]>(this.apiURLServices);
   }
 
   getServiceId(_id: string): Observable<ServiceModel> {
-    return this.http.get<ServiceModel>(`${this.apiURL}/${_id}`);
+    return this.http.get<ServiceModel>(`${this.apiURLServices}/${_id}`);
   }
 
   createService(service: ServiceModel): Observable<ServiceModel> {
@@ -34,18 +34,18 @@ export class ServiceService {
       finished: service.finished,
       paid: service.paid,
     };
-    return this.http.post<ServiceModel>(`${this.apiURL}`, serviceBody);
+    return this.http.post<ServiceModel>(`${this.apiURLServices}`, serviceBody);
   }
 
   updateService(service: ServiceModel): Observable<ServiceModel> {
     return this.http.put<ServiceModel>(
-      `${this.apiURL}/update/${service._id}`,
+      `${this.apiURLServices}/update/${service._id}`,
       service
     );
   }
 
   deleteService(_id: string): Observable<Object> {
-    return this.http.delete<Object>(`${this.apiURL}/${_id}`);
+    return this.http.delete<Object>(`${this.apiURLServices}/${_id}`);
   }
 
   getClients(): Observable<ClientModel[]> {
