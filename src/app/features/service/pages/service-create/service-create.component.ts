@@ -86,7 +86,6 @@ export class ServiceCreateComponent implements OnInit {
             this.router.navigateByUrl('services');
           },
           error: (err: any) => {
-            console.log(service);
             console.log(err);
           },
         });
@@ -138,7 +137,6 @@ export class ServiceCreateComponent implements OnInit {
     this.subscriptions = this.serviceServices
       .getClients()
       .subscribe((client) => {
-        console.log(client);
         this.Clients = client;
       });
   }

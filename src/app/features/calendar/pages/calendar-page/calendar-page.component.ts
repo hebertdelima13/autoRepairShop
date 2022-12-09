@@ -51,9 +51,11 @@ export class CalendarPageComponent implements OnInit {
           slotMinTime: '07:00:00',
           slotMaxTime: '22:00:00',
           dayMaxEvents: true,
+          editable: true,
           eventTextColor: 'fffffe',
           eventBackgroundColor: '#004239',
           eventBorderColor: '#34373c',
+          navLinks: true,
           slotLabelFormat: [{ hour: '2-digit', minute: '2-digit' }],
           eventClick: this.handleServiceClick.bind(this),
 

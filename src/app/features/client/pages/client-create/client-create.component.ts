@@ -27,12 +27,12 @@ export class ClientCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initLoginForm();
+    this.initClientForm();
     this.checkEditMode();
     this.getCars();
   }
 
-  private initLoginForm() {
+  private initClientForm() {
     this.clientForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -122,7 +122,6 @@ export class ClientCreateComponent implements OnInit {
     this.subscriptions = this.clientService.getCars().subscribe({
       next: (cars) => {
         this.arrayCars = cars;
-        console.log(cars);
       },
       error(err) {
         console.log(err);

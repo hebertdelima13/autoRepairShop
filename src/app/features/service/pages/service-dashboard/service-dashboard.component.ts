@@ -25,7 +25,6 @@ export class ServiceDashboardComponent implements OnInit {
     this.subscriptions = this.serviceServices
       .getService()
       .subscribe((service) => {
-        console.log(service);
         this.services = service;
       });
   }

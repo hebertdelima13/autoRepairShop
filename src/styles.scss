@@ -15,6 +15,8 @@ body {
   color: #34373c;
 }
 
+//Variables
+
 $primary: #004239;
 $secondary: #f1f2f3;
 $textcolordark: #34373c;
@@ -26,11 +28,15 @@ $regular: 400;
 $bold: 700;
 $blackFont: 900;
 
+// Table CSS
+
 tbody {
   th {
     font-weight: 400 !important;
   }
 }
+
+//FullCalendar CSS
 
 .fc {
   a {
@@ -48,6 +54,8 @@ tbody {
     box-shadow: none !important;
   }
 }
+
+// Toastr CSS
 
 .toast-close-button {
   &:hover {
