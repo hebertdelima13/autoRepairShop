@@ -21,16 +21,14 @@
     <br>
 </div>
 
-<p align="center">
-    <a href='https://www.imagemhost.com.br/images/2022/12/12/login.png'><img src="https://www.imagemhost.com.br/images/2022/12/12/login.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/mes.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/mes.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/semana.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/semana.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/lista.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/lista.png"  alt="Logo"  width="240"><br></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/lista.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/sidebar.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/clientes.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/clientes.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/clientes2.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/clientes2.png"  alt="Logo"  width="240"></a>
-    <a href="https://www.imagemhost.com.br/images/2022/12/12/servicos.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/servicos.png"  alt="Logo"  width="240"></a>
-</p>
+<a href='https://www.imagemhost.com.br/images/2022/12/12/login.png'><img src="https://www.imagemhost.com.br/images/2022/12/12/login.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/mes.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/mes.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/semana.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/semana.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/lista.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/lista.png"  alt="Logo"  width="240"><br></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/lista.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/sidebar.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/clientes.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/clientes.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/clientes2.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/clientes2.png"  alt="Logo"  width="240"></a>
+<a href="https://www.imagemhost.com.br/images/2022/12/12/servicos.png"><img src="https://www.imagemhost.com.br/images/2022/12/12/servicos.png"  alt="Logo"  width="240"></a>
 <br>
 
 ## 📌 About
@@ -41,7 +39,7 @@
 - [Backend do projeto](https://github.com/hebertdelima13/autoRepairShopAPI)
 
 </div>
-<br>
+
 ## 🚀 Recursos
 
  <p align="left">
@@ -51,7 +49,6 @@
     - Listagem de clientes e serviços.<br>
     - Dashboard.
  </p>
- <br>
 
 ## 👓 Conceitos revisados
 
@@ -63,7 +60,6 @@
     - Autenticação e proteção de rotas.<br>
     - Responsividade.
  </p>
-<br>
 
 ## 📕 Instalação
 
@@ -81,11 +77,8 @@
 2. Instalar as dependências
 3. Inicializar o backend
 </p>
-<br>
 
 ### 1. Clonando o repositório
-
-<br>
 
 ```
 git clone https://github.com/hebertdelima13/autoRepairShop.git
@@ -93,11 +86,7 @@ git clone https://github.com/hebertdelima13/autoRepairShop.git
 
 ---
 
-<br>
-
 ### 2. Instalando as dependências
-
-<br>
 
 ```
 npm install
@@ -105,11 +94,7 @@ npm install
 
 ---
 
-<br>
-
 ### 3. Inicializando o backend
-
-<br>
 
 ```
 git clone https://github.com/hebertdelima13/autoRepairShopAPI.git
@@ -120,8 +105,6 @@ git clone https://github.com/hebertdelima13/autoRepairShopAPI.git
 ```
 npm install > npm start
 ```
-
-<br>
 
 ## 🎮 Rodando o projeto
 
