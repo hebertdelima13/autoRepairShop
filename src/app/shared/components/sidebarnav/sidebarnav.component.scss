@@ -36,6 +36,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 
   .sidenav-nav-item {
     width: 100%;
