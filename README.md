@@ -122,6 +122,10 @@ ng serve
 3. Agora, abra seu navegador e navegue até: http://localhost:4200
 ```
 
+```
+4. Para autenticação utilizar - Email: admin@admin.com.br e Senha: admin
+```
+
 ## 🌐 Tecnologias
 
 - [Angular](https://angular.io/)
