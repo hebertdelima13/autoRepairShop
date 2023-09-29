@@ -10,7 +10,7 @@ import { ClientModel } from '../models/client.model';
 })
 export class ClientService {
   apiURLClients = environment.apiURLClients;
-  apiURLCars = 'https://private-anon-71ea83ed72-carsapi1.apiary-mock.com/cars';
+  apiURLCars = 'https://private-anon-c41cf5d913-carsapi1.apiary-mock.com/cars';
 
   constructor(private http: HttpClient) {}
 
